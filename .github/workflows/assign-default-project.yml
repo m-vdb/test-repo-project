@@ -1,0 +1,20 @@
+name: Assign default project to issues
+
+on:
+  issues:
+    types:
+    - opened
+
+jobs:
+  vulnerability_scan:
+    name: Assign relevant issues to Enable project board
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Add issue to project
+      if: contains(github.event.issue.labels.*.name, 'bug') || contains(github.event.issue.labels.*.name, 'enhancement')
+      uses: peter-evans/create-or-update-project-card@3d5056faa1b952f322b49b5d5f37adefd702e3e1
+
+      with:
+        project-number: 1
+        column-name: Inbox
