@@ -13,8 +13,9 @@ jobs:
     steps:
     - name: Add issue to project
       if: contains(github.event.issue.labels.*.name, 'bug') || contains(github.event.issue.labels.*.name, 'enhancement')
-      uses: peter-evans/create-or-update-project-card@3d5056faa1b952f322b49b5d5f37adefd702e3e1
+      uses: m-vdb/create-or-update-project-card@a55a6e81cd3bb81debc67065c2b725b0a5477b8c
 
       with:
         project-number: 1
         column-name: Inbox
+        skip-update: true
