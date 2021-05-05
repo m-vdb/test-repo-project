@@ -13,7 +13,7 @@ jobs:
     steps:
     - name: Add issue to project
       if: contains(github.event.issue.labels.*.name, 'bug') || contains(github.event.issue.labels.*.name, 'enhancement')
-      uses: m-vdb/create-or-update-project-card@master
+      uses: RasaHQ/create-or-update-project-card@9cce0e7
 
       with:
         project-number: 1
